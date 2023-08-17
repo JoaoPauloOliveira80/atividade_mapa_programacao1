@@ -1,6 +1,5 @@
 package com.vigjoaopaulo.laboratorio.gui;
 
-
 import com.vigjoaopaulo.laboratorio.exames.Colesterol;
 import com.vigjoaopaulo.laboratorio.exames.Exames;
 import com.vigjoaopaulo.laboratorio.exames.Glicemia;
@@ -21,6 +20,7 @@ public class MenuExames extends javax.swing.JFrame {
 
     public MenuExames() {
         initComponents();
+
         myFrame = this;
 
     }
@@ -36,7 +36,7 @@ public class MenuExames extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema de Cadastro VERSÂO 1.0");
+        setTitle("PRO MEDICAL --- Versão 1.0");
         setBackground(new java.awt.Color(153, 204, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(153, 153, 255));
@@ -70,7 +70,8 @@ public class MenuExames extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("SEJA BEM VINDO A TELA DE CADASTRO DE EXAMES 2");
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel1.setText("SEJA BEM VINDO A TELA DE CADASTRO DE EXAMES ");
 
         btnSair.setBackground(new java.awt.Color(51, 255, 255));
         btnSair.setText("SAIR");
@@ -89,35 +90,33 @@ public class MenuExames extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(btnGlicemia, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnColesterol, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTrigliceres))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(btnColesterol, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnTrigliceres))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGlicemia, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnColesterol, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTrigliceres, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btnSair)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -137,9 +136,8 @@ public class MenuExames extends javax.swing.JFrame {
                 Paciente paciente = Paciente.inserirPaciente();
                 if (paciente != null) {
                     exames = new Triglicerideos(emJejum, paciente, 0);
-                    exames.cadastrarTrigliceres();
-//                    exames.mostrarResultado();
-                    
+                    exames.cadastrarExame();
+
                 }
                 validInput = true;
             } else {
@@ -155,7 +153,7 @@ public class MenuExames extends javax.swing.JFrame {
         Paciente paciente = Paciente.inserirPaciente();
         if (paciente != null) {
             exames = new Glicemia(paciente, 0);
-            exames.cadastrarGlicemia();
+            exames.cadastrarExame();
 
         }
         myFrame.setVisible(true);
@@ -171,13 +169,14 @@ public class MenuExames extends javax.swing.JFrame {
         if (paciente != null) {
             char risk = 0;
             exames = new Colesterol(paciente, 0, 0, risk);
-            exames.cadastrarColesterol();
+            exames.cadastrarExame();
 
         }
 
         // Faz o JFrame reaparecer
         myFrame.setVisible(true);
     }//GEN-LAST:event_cadastrarColesterol
+
 
     private void btnSair(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSair
         myFrame.setVisible(false);
@@ -204,14 +203,14 @@ public class MenuExames extends javax.swing.JFrame {
             @Override
             public void run() {
                 MenuExames myFrame = new MenuExames();
-                //  myFrame.setDefaultCloseOperation(MenuExames.EXIT_ON_CLOSE);
                 myFrame.pack();
                 myFrame.setLocationRelativeTo(null);
                 myFrame.setVisible(true);
-                
 
+               
             }
         });
+
     }
 
 

@@ -44,7 +44,7 @@ public final class Triglicerideos extends Exames {
         this.emJejum = emJejum;
     }
 
-    @Override
+    
     public void mostrarResultado() {
         JOptionPane.showMessageDialog(null,
                 "Nome: " + getPaciente().getNome() + "\n" + "Triglicerideos: " + String.format("%.2f", getTriglicerideoMgl()) + "\n"
@@ -71,7 +71,8 @@ public final class Triglicerideos extends Exames {
     }
 
     @Override
-    public void cadastrarTrigliceres() {
+    public void cadastrarExame() {
+        super.cadastrarExame();
         String triglicetres = null;
         boolean valido = false;
         while (!valido) {
@@ -89,16 +90,6 @@ public final class Triglicerideos extends Exames {
         }
         setTriglicerideoMgl(Double.parseDouble(triglicetres));
         mostrarResultado();
-    }
-
-    @Override
-    public void cadastrarGlicemia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void cadastrarColesterol() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     

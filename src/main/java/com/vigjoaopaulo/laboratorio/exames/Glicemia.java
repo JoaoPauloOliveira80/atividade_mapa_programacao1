@@ -28,7 +28,7 @@ public final class Glicemia extends Exames {
         this.glicemiaMgl = glicemiaMgl;
     }
 
-    @Override
+   
     public void mostrarResultado() {
         JOptionPane.showMessageDialog(null,
                 "Nome: " + getPaciente().getNome()
@@ -52,7 +52,8 @@ public final class Glicemia extends Exames {
     }
 
     @Override
-    public void cadastrarGlicemia() {
+    public void cadastrarExame() {
+        super.cadastrarExame();
 
         String glicemia = null;
         boolean glicemiaValida = false;
@@ -86,14 +87,5 @@ public final class Glicemia extends Exames {
         mostrarResultado();
     }
 
-    @Override
-    public void cadastrarColesterol() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void cadastrarTrigliceres() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
 }

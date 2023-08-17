@@ -49,7 +49,7 @@ public final class Colesterol extends Exames {
         this.risco = risco;
     }
 
-    @Override
+   
     public void mostrarResultado() {
         JOptionPane.showMessageDialog(null,
                 "Nome: " + getPaciente().getNome()
@@ -106,7 +106,8 @@ public final class Colesterol extends Exames {
     }
 
     @Override
-    public void cadastrarColesterol() {
+    public void cadastrarExame() {
+        super.cadastrarExame();
         
         boolean hdlValido = false;
         String _hdl = null;
@@ -178,13 +179,4 @@ public final class Colesterol extends Exames {
 
     }
 
-    @Override
-    public void cadastrarGlicemia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void cadastrarTrigliceres() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

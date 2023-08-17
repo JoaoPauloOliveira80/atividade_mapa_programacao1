@@ -10,7 +10,7 @@ import com.vigjoaopaulo.laboratorio.model.Paciente;
  *
  * @author vigjo
  */
-public abstract class Exames {
+public class Exames {
 
     private Paciente paciente;
 
@@ -29,14 +29,12 @@ public abstract class Exames {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
-   public abstract void cadastrarGlicemia();
-   public abstract void cadastrarColesterol();
-   public abstract void cadastrarTrigliceres();
-
-    public void mostrarResultado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public void cadastrarExame(){
+        
     }
+
+   
     
     
 
